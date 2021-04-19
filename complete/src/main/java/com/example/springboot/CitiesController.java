@@ -25,4 +25,24 @@ public class CitiesController {
 		citieslista.add(new Cities(5,"Santiago","Coruña"));
 		return citieslista;
 	}
+
+	@GetMapping("/cities/{id}")
+	public Cities city(@PathVariable Long id){
+		int i = Integer.valueOf(Math.toIntExact(id));
+		switch (i) {
+			case 1:
+				return new Cities(1,"Ourense","Ourense");
+			case 2:
+				return new Cities(2,"Vigo","Pontevedra");
+			case 3:
+				return new Cities(3,"Lugo","Lugo");
+			case 4:
+				return new Cities(4,"Coruña","Coruña");
+			case 5:
+				return new Cities(5,"Santiago","Coruña");
+
+			default:
+				return new Cities(0,"Default","Default");
+		}
+	}
 }
